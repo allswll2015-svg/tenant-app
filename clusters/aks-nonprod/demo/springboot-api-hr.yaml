@@ -1,0 +1,22 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: demo-api
+  namespace: demo
+spec:
+  interval: 1m
+  releaseName: demo-api
+  chart:
+    spec:
+      chart: ./charts/app
+      sourceRef:
+        kind: GitRepository
+        name: app-springboot
+        namespace: flux-system
+      interval: 1m
+  values:
+    image:
+      repository: demo
+      tag: local
+    service:
+      port: 8080
