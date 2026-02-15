@@ -16,7 +16,8 @@ spec:
       interval: 1m
   values:
     image:
-      repository: demo
-      tag: local
+      repository: allswll2015/demo-api
+      tag: "0.1.0"
+      pullPolicy: IfNotPresent
     service:
       port: 8080
